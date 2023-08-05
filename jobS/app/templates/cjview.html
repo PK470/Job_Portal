@@ -1,0 +1,63 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<head>
+    <style>
+        .box-element{
+            box-shadow:hsl(0, 0%, 80%) 0 0 16px;
+            background-color: #fff;
+            border-radius: 4px;
+            padding: 10px;
+        }
+    </style>
+</head>
+{% if messages %}
+<div class="pt-3">
+<div class="alert alert-danger" role="alert">
+    {% for message in messages %}
+        {{ message }}
+    {% endfor %}
+    
+</div>
+</div>
+{% endif %}
+<div>
+    <div class="container">
+
+        <h1>
+          {{jobs.title}}
+        </h1>
+      
+        <p>{{jobs.j_description}}</p>
+      
+        
+      </div>
+</div>
+<div class="row" style="padding-top:30px;
+                        padding-bottom:30px;">
+    
+    {% for apply in applys  %}
+    <div class="col-lg-4" style="padding-top:20px;">
+        
+        <div class="box-element product">
+            <h6><strong>{{apply.user.username}}</strong></h6>
+            <hr>
+            
+           
+            <h6>{{apply.resume.first_name}} {{apply.resume.last_name}}</h6>
+            <h6>{{apply.user.email}}</h6>
+            <a href="{{apply.resume.linkdean}}">LinkedIn</a>
+            <br>
+            <a href="{{apply.resume.pdf.url}}" target="_blank">Open Resume</a>
+			<h4 style="display: inline-block; float: right"><strong> </strong></h4>
+        </div>
+    </div>
+   
+    {% endfor %}
+
+</div>
+    
+
+
+{% endblock  %}
+

@@ -1,0 +1,50 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<head>
+    <style>
+        .box-element{
+            box-shadow:hsl(0, 0%, 80%) 0 0 16px;
+            background-color: #fff;
+            border-radius: 4px;
+            padding: 10px;
+        }
+    </style>
+</head>
+{% if messages %}
+<div class="pt-3">
+<div class="alert alert-danger" role="alert">
+    {% for message in messages %}
+        {{ message }}
+    {% endfor %}
+    
+</div>
+</div>
+{% endif %}
+<div class="row" style="padding-top:30px;
+                        padding-bottom:30px;">
+    
+    {% for job in jobs  %}
+    <div class="col-lg-4" style="padding-top:20px;">
+        
+        <div class="box-element product">
+            <h6><strong>{{job.title}}</strong></h6>
+            <hr>
+            <h6><strong>Description:-</strong></h6>
+           
+            <h6>{{job.j_description}}</h6>
+            <h6><strong>Skills:-</strong></h6>
+            <h6>{{job.skills}}</h6>
+            <a class="btn btn-warning" href="{% url 'jview' job.id %}">View</a>
+			<h4 style="display: inline-block; float: right"><strong>₹{{job.offer}}</strong></h4>
+        </div>
+    </div>
+   
+    {% endfor %}
+
+</div>
+    
+
+
+{% endblock  %}
+

@@ -1,0 +1,272 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<head>
+    <style>
+        .job {
+            padding: 30px;
+            
+          }
+          
+          .title {
+            font-size: 20px;
+            font-weight: 600;
+          }
+          
+          .admin {
+          }
+          
+          .icon {
+            margin-right: 3px;
+          }
+          
+          
+          .separator {
+            margin: 30px 0px;
+            border-bottom: 1px solid rgb(210, 210, 210);
+          }
+          
+          body {
+            background-color: rgb(236, 240, 245);
+          }
+          
+          .job {
+            background-color: white;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+          }
+          
+          .job:hover {
+            background: rgba(249, 249, 249, 0.5);
+          }
+          
+          .job-wrapper {
+            box-shadow: rgba(0, 0, 0, 0.1) 2px 5px 20px;
+            background: rgb(255, 255, 255);
+            border-radius: 3px;
+            margin-bot 30px;
+          }
+          
+          .separator2 {
+            margin: 10px 0px;
+            border-bottom: 1px solid rgb(210, 210, 210);
+          }
+          
+          .description-title,
+          .job-title {
+            font-size: 20px;
+            font-weight: 600;
+          }
+          
+          .page {
+            margin-top: 30px;
+          }
+          
+          .row {
+            margin-right: 0px;
+            margin-left: 0px;
+          }
+          
+          .description-text {
+            text-align: justify;
+          }
+          
+          .link-share {
+            font-size: 25px;
+            color: rgb(75, 77, 85);
+            padding: 25px 10px 20px;
+          }
+          
+          .zmdi {
+            margin-top: 10px;
+          }
+          
+          .link-share:hover {
+            color: #1172ce;
+          }
+          
+          .sn-title, .ap-title {
+              position: absolute;
+              left: 0;
+              top: -10px;
+              width: 100%;
+              margin: 0;
+              padding: 0;
+              font-size: 13px;
+              text-transform: uppercase;
+              text-align: center;
+              letter-spacing: 1px;
+              font-weight: 400;
+          }
+          
+          .social-network, .admin {
+            padding: 25px;
+            border: 1px solid rgb(210, 210, 210);
+            margin-bottom: 30px;
+            text-align: center;
+            position: relative;
+          }
+          
+          .sn-title span {
+            display: inline-block;
+            padding: 0 5px;
+            background-color: rgb(236, 240, 245);
+          }
+          
+          .ap-title span {
+            display: inline-block;
+            padding: 0 5px;
+            background-color: rgb(236, 240, 245);
+          }
+          
+          .job-details {
+            font-size: 16px;
+            color: #87888D;
+            margin-right: 2px;
+          }
+          
+          .job-details span {
+            margin-left: 3px;
+            margin-right: 5px;
+          }
+          
+          .company-title {
+            margin-top: 20px; 
+          }
+          
+          .company-logo {
+            margin-right: 20px;
+            margin-left: 15px;
+          }
+          
+          .company-name {
+            font-size: 35px;
+            font-weight: 600;
+          }
+          
+          .company-link {
+            color: black;
+          }
+          
+          .company-meta {
+            font-size: 16px;
+            font-weight: 400;
+          }
+          
+          .meta-item {
+            margin-right: 15px;
+          }
+          
+          .icon-title {
+            margin-right:5px;
+          }
+    </style>
+</head>
+<div class="container company-title">
+    <div class="row">
+      <div class="">
+        <img class="company-logo" src="http://via.placeholder.com/100x100" alt="">
+      </div>
+      <div class="header-title">
+        <h1 class="company-name">{{job.company}}</h1>
+        <h2 class="company-meta">
+          <a href="">
+            <span class="meta-item">
+              <i class="icon-title icon zmdi zmdi-pin"></i>{{job.location}}</span>
+          </a>
+          <a href="company.name.com" class="company-link">
+            <span class="meta-item"><i class="icon-title zmdi zmdi-globe"></i>{{job.company.email}}</span>
+          </a>
+        </h2>
+      </div>
+    </div>
+  </div>
+  
+  <div class="container">
+    <div class="row justify-content-between page">
+      <section class="col">
+        
+        <div class="row separator"></div>
+        <div class="job-wrapper">
+          
+            <div class="row job">
+              <div class="col-12 title mt-3"><h3>{{job.title}}</h3></div>
+              
+                <div class="row title mb-4"><h3>Description:-</h3></div>
+              
+                    <div class="col-12 job-details">
+                        <div class="row separator2"></div>
+                            <div class="row description-text">
+                                {{job.j_description}}
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="col-12 title mt-3"><h3>Skills Required:-</h3></div>
+                        <div class="row description-text">
+                            {{job.skills}}
+                        </div>
+                        <div class="col-12 title mt-3"><h3>Date</h3></div>
+                        <div class="row description-text">
+                            {{job.date}}
+                        </div>
+                        <div class="col-12 title mt-3"><h3>No of Openings</h3></div>
+                        <div class="row description-text">
+                            {{job.no_of_opening}}
+                        </div>
+                        <div class="col-12 title mt-3"><h3>CTC</h3></div>
+                        <div class="row description-text">
+                            {{job.offer}}
+                        </div>
+                        
+                    </div>
+                    
+                    
+                </div>
+      </section>
+      <section class="col-lg-4 aside-page">
+  
+        <div class="row admin">
+          <p class="col-12 ap-title"><span></span></p>
+          <div class="col-12">
+            
+            <a href="{% url 'apply' job.id %}" class="btn btn-primary">Apply</a>
+            
+          </div>
+        </div>
+        <div class="row social-network">
+          <p class="col-12 sn-title"><span>Social Networks</span></p>
+          <!-- Section: Social media -->
+      <section class="d-flex justify-content-between p-4" style="background-color: #19bfbf">
+        <!-- Left -->
+        
+        <!-- Left -->
+  
+        <!-- Right -->
+        <div>
+          <a href="" class="text-white me-4">
+            <i class="fab fa-facebook-f"></i> 
+          </a>
+          <a href="https://twitter.com/Pranav212002" class="text-white me-4">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="" class="text-white me-4">
+            <i class="fab fa-google"></i>
+          </a>
+          <a href="" class="text-white me-4">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/pranav-kini-8aaa8224b" class="text-white me-4">
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a href="https://github.com/PK470" class="text-white me-4">
+            <i class="fab fa-github"></i>
+          </a>
+        </div>
+        <!-- Right -->
+      </section>
+        </div>
+        
+      </section>
+    </div>
+  </div>
+{% endblock  %}
